@@ -16,7 +16,6 @@ namespace API_auth.Controllers.API
             _context = context;
         }
 
-        // POST: api/LoginApi/login
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest request)
         {
@@ -25,11 +24,9 @@ namespace API_auth.Controllers.API
 
             if (usuario == null)
             {
-                // Usamos el DTO para el error
                 return Unauthorized(new LoginResponse(false, "Credenciales incorrectas"));
             }
 
-            // Usamos el DTO para el éxito
             return Ok(new LoginResponse(true, "¡Bienvenido!"));
         }
     }
